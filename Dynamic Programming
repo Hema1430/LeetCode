@@ -1,0 +1,31 @@
+Dynamic Programming (DP) is a programming paradigm that can systematically and efficiently explore all possible solutions to a problem. As such, it is capable of solving a wide variety of problems that often have the following characteristics:
+
+The problem can be broken down into "overlapping subproblems" - smaller versions of the original problem that are re-used multiple times.
+The problem has an "optimal substructure" - an optimal solution can be formed from optimal solutions to the overlapping subproblems of the original problem.
+
+There are two ways to implement a DP algorithm:
+1.Bottom-up, also known as tabulation.
+2.Top-down, also known as memoization.
+
+Bottom-up:
+F = array of length (n + 1)
+F[0] = 0
+F[1] = 1
+for i from 2 to n:
+    F[i] = F[i - 1] + F[i - 2]
+
+
+Top-down:
+memo = hashmap
+Function F(integer i):
+    if i is 0 or 1: 
+        return i
+    if i doesn't exist in memo:
+        memo[i] = F(i - 1) + F(i - 2)
+    return memo[i]
+
+Which is Better?
+Any DP algorithm can be implemented with either method, and there are reasons for choosing either over the other. However, each method has one main advantage that stands out:
+
+A bottom-up implementation's runtime is usually faster, as iteration does not have the overhead that recursion does.
+A top-down implementation is usually much easier to write. This is because with recursion, the ordering of subproblems does not matter, whereas with tabulation, we need to go through a logical ordering of solving subproblems.
